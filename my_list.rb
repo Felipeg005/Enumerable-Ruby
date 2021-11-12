@@ -1,16 +1,14 @@
 require 'my_enumerable'
-include MyEnumerable
+
 class MyList
-  def initialize(*list)
-    @list = list
+  include MyEnumerable
+  def initialize (*list)
+    @list= list
   end
-  def my_each (*array)
-    i = 0
-    while i < array.length
-      yield array[i]
-      i += 1
+  def my_each
+    @list.each do |i|
+      yield i
     end
   end
 end
 
-list = MyList.new(1, 2, 3, 4)

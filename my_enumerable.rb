@@ -1,8 +1,10 @@
 module MyEnumerable
-  def my_all
+  def all?
+    my_each do |i|
     return true unless block_given?
-    true_false = yield(element)
+    true_false = yield(i)
     return false unless true_false
+    end
+  return true
   end
-  # return true
 end
